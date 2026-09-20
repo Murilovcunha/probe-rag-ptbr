@@ -1,0 +1,113 @@
+CORRECAO APLICADA A ESTA ENTREGA -- 13/09/2026
+Substitui os arquivos do BLOCO 1 do mistral e as consolidacoes derivadas.
+O BLOCO 2 desta entrega NAO foi tocado e esta integro.
+
+
+1. O QUE ESTAVA ERRADO
+----------------------
+Os parquets do Bloco 1 do mistral empacotados aqui sao os da entrega
+`mistral_ff70bb0`, anteriores a correcao. Aquela rodada foi retomada de um
+checkpoint na pergunta 141, e a retomada atravessou a correcao do `</s>`:
+as perguntas 0-140 sairam com o codigo antigo e as 141-191 com o corrigido,
+no mesmo arquivo.
+
+                                  0-140      141-191
+  `</s>` em resposta_final (regex)  96,69 %     0,00 %
+  json_estrito                       0,00 %    98,69 %
+
+Por isso o `json_estrito` do mistral aparecia em 25,5 / 56,5 / 43,0 % na
+`tabela_bloco1.csv`: era a media de 141 perguntas com 0 % e 51 com ~99 %.
+
+
+2. O QUE FOI FEITO
+------------------
+Nao houve nova geracao. As correcoes sao offline, sobre o texto ja gravado:
+reextracao do `resposta_final` com a limpeza corrigida (409 linhas do resumo,
+658 das iteracoes), recalculo do `json_estrito` (1.137 linhas) e recomputo do
+BERTScore apenas nas 409 linhas alteradas. Detalhes no LEIA-ME de
+`mistral_entrega_CORRIGIDO.zip`.
+
+As consolidacoes (`consolidado_bloco1.*` e `tabela_bloco1.csv`) foram
+REGERADAS com o `04_metricas.py` sobre a pasta ja corrigida, com
+LOGPROB_RETRIEVER=qwen3.
+
+
+3. O QUE MUDOU, EXATAMENTE
+--------------------------
+Quatro colunas, e SO nas linhas do mistral:
+
+  json_estrito_%   json  fixo50         25,5208  ->  97,9167
+                   json  incremental    56,5217  ->  99,6475
+                   json  iterativo      42,9603  ->  99,9097
+
+  S_f1_medio       regex fixo50          0,7697  ->   0,7810
+                   regex incremental     0,7689  ->   0,7816
+                   regex iterativo       0,7614  ->   0,7738
+
+  S_p_medio        regex fixo50          0,7358  ->   0,7552
+                   regex incremental     0,7431  ->   0,7652
+                   regex iterativo       0,7407  ->   0,7624
+
+  S_r_medio        regex fixo50          0,8153  ->   0,8177
+                   regex incremental     0,8047  ->   0,8073
+                   regex iterativo       0,7922  ->   0,7947
+
+NAO mudaram, em nenhuma linha:
+  D_iter_medio, D_iter_mediana, D_chunk_medio, T_total_medio,
+  n_inferencias_media, censurado_dmax, censurado_tokens, max_tokens_%,
+  parou_no_gold_%, conformidade_json_%
+
+  -> o `direcao_iter_vs_incremental.csv` sai com o MESMO sha256 de antes
+     (0556833d...), o que confirma que a correcao nao toca a decisao de
+     parada. Por isso ele nao precisou ser substituido.
+
+O `gpt-oss:20b` e o `qwen3.8:27b` nao mudaram em nenhuma coluna.
+
+Leitura: os contrastes pareados praticamente nao se moveram (o ΔF1 do
+iterativo sob regex vai de -0,0083 para -0,0072). O que a correcao consertou
+foram os valores ABSOLUTOS de S no braco regex e a taxa de conformidade
+estrita, que estavam errados.
+
+
+4. ARQUIVOS SUBSTITUIDOS (sha256 antigo -> novo)
+------------------------------------------------
+b1_iteracoes_mistral_small3_1_latest.parquet
+  0abfe7cd3d4fd1c807d1baa8787514bce23464af8b05a099cff3b52e8549e886
+  a4f7d8c2f4eb5f375444669073b33965fa9026b1e83f024e6278631b80a6d025
+
+b1_resumo_mistral_small3_1_latest.parquet
+  d0d7cebac36b0d13924961660072319cabf26462aa3032c76d72b735f33a1d9f
+  94847e7d4f61aa5f128bc0816be0177a549619db7bdc9d9e87e86766bf9cd120
+
+consolidado_bloco1.csv
+  b356504871c6fdeb6193ff31054ddb0d66d749b8d8f25751b9066ca6bb896639
+  af2cf880499a440981ec4ec15b39100b5d4c4c1979dee9cb2c9c031c0958be84
+
+consolidado_bloco1.parquet
+  350c9f671ab0ae51a174a8f475da3ec1314195383479e40b1c70a3198064055f
+  e3d64cf3cf9d90a386e0bc9d485824719c946880f00920fdae92143ebdeb8ffb
+
+tabela_bloco1.csv
+  f490f5f1fe49aa7d6da0d15144fa37debab632efe72d99e7eac28e6ed0dd4245
+  545ff5cc93fcf446856ee464ca16d1152ca61fb1a447825ff7ec4b6556fa56fc
+
+NAO substituidos, e por que:
+  direcao_iter_vs_incremental.csv  -- sai identico; a correcao nao toca D
+  b1_*_checkpoint_sem_bertscore    -- artefatos intermediarios, nao usados
+  tudo do Bloco 2                  -- integro, gerado apos as correcoes
+
+
+5. O MANIFESTO.txt DESTA PASTA NAO FOI EDITADO
+----------------------------------------------
+De proposito: ele e o registro do que foi empacotado em 13/09, e apagar isso
+destruiria a trilha de auditoria. Os hashes de cinco arquivos listados la
+NAO batem mais com o conteudo da pasta -- os valores corretos estao na secao
+4 acima.
+
+
+6. PENDENCIA PARA AS PROXIMAS ENTREGAS
+--------------------------------------
+Os parquets corrigidos do mistral precisam entrar na pasta de trabalho de
+quem empacota, senao isto se repete a cada entrega. Os arquivos estao em
+`mistral_entrega_CORRIGIDO.zip`, com os nomes canonicos, prontos para
+substituir os de `saidas/`.

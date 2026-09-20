@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "Se este recurso for útil ao seu trabalho, cite o artigo e o conjunto de dados."
+title: "PROBE — recurso de avaliação e resultados experimentais para construção incremental de contexto em RAG local sobre documentação normativa hospitalar em português"
+abstract: >-
+  Conjunto de avaliação em português brasileiro com 192 pares pergunta-resposta
+  sobre documentação normativa de um hospital universitário, resultados por
+  consulta de 6.912 execuções em três arquiteturas locais, dois recuperadores e
+  duas modalidades de parada, e os registros da sonda de entropia de logits
+  (8.880 inferências). O texto integral dos documentos normativos não é
+  distribuído.
+type: dataset
+version: "1.0.0"
+date-released: 2026-09-20
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+repository-code: "https://github.com/USUARIO/probe-rag-ptbr"
+doi: "10.5281/zenodo.XXXXXXX"
+keywords:
+  - retrieval-augmented generation
+  - large language models
+  - context sufficiency
+  - Brazilian Portuguese
+  - hospital normative documents
+  - language resource
+authors:
+  - family-names: "da Cunha"
+    given-names: "Murilo Vargas"
+    affiliation: "Universidade Federal de Pelotas (UFPel); Instituto Federal do Rio Grande do Sul (IFRS)"
+    email: "mvcunha@inf.ufpel.edu.br"
+  - family-names: "Silveira"
+    given-names: "Marília Rosa"
+    affiliation: "Universidade Federal de Pelotas (UFPel)"
+  - family-names: "Sperb"
+    given-names: "César Brasil"
+    affiliation: "Universidade Federal de Pelotas (UFPel)"
+  - family-names: "de Freitas"
+    given-names: "Larissa Astrogildo"
+    affiliation: "Universidade Federal de Pelotas (UFPel)"
+  - family-names: "Corrêa"
+    given-names: "Ulisses Brisolara"
+    affiliation: "Universidade Federal de Pelotas (UFPel)"
+preferred-citation:
+  type: article
+  title: "PROBE: Incremental Context Construction with Generator-Declared Stopping in Local Retrieval-Augmented Generation over Portuguese Hospital Documents"
+  journal: "Language Resources and Evaluation"
+  year: 2026
+  authors:
+    - family-names: "da Cunha"
+      given-names: "Murilo Vargas"
+    - family-names: "Silveira"
+      given-names: "Marília Rosa"
+    - family-names: "Sperb"
+      given-names: "César Brasil"
+    - family-names: "de Freitas"
+      given-names: "Larissa Astrogildo"
+    - family-names: "Corrêa"
+      given-names: "Ulisses Brisolara"

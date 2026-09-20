@@ -1,0 +1,105 @@
+ENTREGA: Bloco 1 + Bloco 2, tres modelos, retriever e5small
+Gerada em: 2026-09-10 20:07:56 -03
+
+--- CONTEUDO ---
+gpt-oss:20b  |  mistral-small3.1:latest  |  qwen3.8:27b
+  Bloco 1: 192 perguntas x 2 criterios x 3 modos, D_max=50, teto 800
+  Bloco 2:  74 perguntas x 10 posicoes x 2 criterios, K_TOP=10
+  Ancoras de determinismo (ancora_*.json): 12 prompts fixos, hash dos
+  logits e dos token ids, tiradas em volta de cada rodada.
+
+ESCOPO, o que NAO esta aqui e por que:
+  gemma3:27b e MedGemma 27b  -- pico de 34,2 GB contra 31,8 da placa;
+                                paginam para a RAM. Decisao pendente.
+  gemma4:31b                 -- nao carrega: marcadores_fim_prefacio
+                                inexistentes no tokenizador.
+  retriever qwen3            -- braco em execucao no laboratorio (UFPel).
+  O MODELOS_BLOCO2 original incluia gemma3 e MedGemma; rodaram os tres
+  que tinham Bloco 1, o que deixa o MedGemma (unico modelo medico) fora
+  do bloco de entropia. Ver docs/nota_bloco2_tres_modelos, cabecalho.
+
+Excluidos do pacote: *_parcial.parquet e *_checkpoint_sem_bertscore.parquet.
+
+--- POR ONDE COMECAR ---
+  docs/nota_bloco2_tres_modelos_2026-09-10.md   secoes 2 e 3 (resultado)
+  docs/nota_bloco1_tres_modelos_2026-09-09.md   secoes 2, 11 e 12
+  tabela_bloco2.csv, postos_bloco2.csv, nula_estratificada_bloco2.csv
+
+--- CODIGO ---
+HEAD no empacotamento : d7af07e6f0ff6b1404bb2beaf67c598ec56b381f (d7af07e, ramo main)
+tag rodada-2026-09    : 9a59b1ac926b0bd265565a3205277244536e4ef5
+   A tag marca o commit que rodou o Bloco 1 do gpt-oss e do qwen3.8.
+   O mistral (Bloco 1) e os tres Blocos 2 rodaram em c196c1b ou depois.
+   Cada metadata_*.json registra o ambiente da sua propria rodada.
+estado  : arvore LIMPA (o codigo versionado e o que rodou)
+
+--- PENDENCIAS CONHECIDAS ---
+  1. Wilcoxon pareado do item 21 NAO rodou (scipy devolve objeto, nao
+     tupla). E a estatistica que da significancia a tabela principal.
+  2. Aviso do item 03 acusa modelo correto: com thinking desligado,
+     inicio>0 = 0% e o esperado, nao falha de alinhamento.
+  3. Ancora: coluna |delta entropia| sai sempre 0 -- medida na ultima
+     posicao do prompt em vez dos passos gerados. Os hashes estao ok.
+  4. Nenhuma ancora testou ainda a janela ENTRE SESSOES, que e onde a
+     deriva apareceu duas vezes.
+
+--- AMBIENTE ---
+imagem  : logprob:1.0  sha256:92daf569743ee0d31245c8aa2e1f2f77789893a9a5e3c0dc2dca9d0dae26d224
+
+--- ARQUIVOS (sha256) ---
+a4b97dfac81105e56e00b236d70f663f73a8a427ee3749f1fcfe040a015a5ff7  ./ancora_gpt_oss_20b_b2_dia2__e5small.json
+bdf2780de9bf9dec9e12e229619ad297a4182f9d1843660767207ab97d6e13e3  ./ancora_gpt_oss_20b_b2_fim__e5small.json
+6e6ccf7230a41eb4a852c89e278443b1a5a229c368f40b8b28cd8874920a3eb8  ./ancora_gpt_oss_20b_b2_inicio__e5small.json
+35b88b9c05f474741534e6074258e8b835f51407351ad20632027bd174f4240f  ./ancora_gpt_oss_20b_fim__e5small.json
+d1d37b84aabb1a5590c8c6dc3027a9580853d5126081cc4ab69ecc704015e4cc  ./ancora_gpt_oss_20b_inicio__e5small.json
+b12b87548f78b4d0643c7e8835dd2bf11bfe1b00009ecb32ceaee9c6f652b3c1  ./ancora_mistral_small3_1_latest_b2_fim__e5small.json
+339a52887ee8b2fe78af17fd0a62caf2d083e0c41a9c5cfb80f5c47572155e55  ./ancora_mistral_small3_1_latest_b2_inicio__e5small.json
+55a85782a9d3aa5e4129cde2d8658a80643d0445547a2958d73df9a799d96a03  ./ancora_qwen3_8_27b_b2_fim__e5small.json
+1394a941ce98a4a41863ce3f56d90657cf0f13f0f18f26cc50d21669911f3fbb  ./ancora_qwen3_8_27b_b2_inicio__e5small.json
+e2eba1da2b2da5e816cecf17532d2ee568fd453ee33de5c51eb315a336104b43  ./b1_iteracoes_gpt_oss_20b__e5small.parquet
+2a798e8474f2b9db6deb0cd63c60503a91009e2f5afe561e6c304cf0dd5214fb  ./b1_iteracoes_mistral_small3_1_latest__e5small.parquet
+28f7711a784bb2e30bab0572cafd2c57d839c67b9e15647f5ab0b2dcaa2adc60  ./b1_iteracoes_qwen3_8_27b__e5small.parquet
+62f584c5cc6b23e2bce0b2b85fc19a1d3a1260bca06777b171c3ba2d5f4ef021  ./b1_resumo_gpt_oss_20b__e5small.parquet
+37ebf72564c3162edd5fe1b37c0ab99f9fc9b1ce734552764626f6779fd899f9  ./b1_resumo_mistral_small3_1_latest__e5small.parquet
+20a5d6f0dec3db0f40202ceab7e5564864232dee7e79bcdc458e22488af6d77b  ./b1_resumo_qwen3_8_27b__e5small.parquet
+ab0811dd0d9988d9b0cd21fb7d6963a4de2fc3303ff6ad6590eb92a302d1e9ba  ./b2_entropia_gpt_oss_20b__e5small.parquet
+cbb96d4c29e7bb25a61290edfcfc5f50e1113fc6ccf56ecd9ef89eb788af7b66  ./b2_entropia_mistral_small3_1_latest__e5small.parquet
+607f670dded21ec6eb1a0c51f826c9190f7bda362e0cc050a0271f1deae07dc0  ./b2_entropia_qwen3_8_27b__e5small.parquet
+56e1556d96a0da8865fd6d204b25172be69df08feae0b8482c2ab84392a9067f  ./b2_resultados_gpt_oss_20b__e5small.parquet
+f40ed35767a66de1d4b56d2164761d43b17bdce58b9cac5b3daf0c3b5f770487  ./b2_resultados_mistral_small3_1_latest__e5small.parquet
+dc11e520d040937abde687912da48fc726db707cf37f7f2ab1bc296dd3805527  ./b2_resultados_qwen3_8_27b__e5small.parquet
+f7d9e1da88a103016ad183692a74745f357ea9486ce3664229ce12525cb9a1b7  ./circularidade_bloco2.csv
+eb84c5a57f202e66886881412d4d7b76516aae54e4d16387d5ff04fabdcbd9a2  ./comparacao_modalidades_bloco2.csv
+45722cfd0d8c468de3a6c2812823e0845040b5dbf93263fcc66b2e785fcd52d3  ./consolidado_bloco1.csv
+315d66c6e26aabcfa8df5dd115038d7f3fcfa65afc51574c20371ffc6f6fdcea  ./consolidado_bloco1.parquet
+34c265beaabab9413736452eda23d64386e83d7fe867c4c38777b4ad6191c7b3  ./consolidado_bloco2.csv
+28ef69b7aabd9e238dcae3facf0ae8f0171117a05914605b3ad449f60b7b3300  ./consolidado_bloco2.parquet
+917af1ca85ca2aa9b20e40aa71fc6af5f499760f536882ac2e815076ca9e3c5d  ./consolidado_bloco2_entropia.parquet
+43770866f826284ee01c9347dda46a43acc2e69ba20be450e615b2d15c2acfe2  ./direcao_iter_vs_incremental.csv
+ef06ff701f6dfb6b8f5c1f348ecb47e1564caae4fd220ca292c1115fdf0f6f6a  ./docs/adendo2_reprodutibilidade_2026-09-05.md
+9aca9112fde72c1ddd42a72f7b32bd7a7414f63f2cac0f2cca4f040c37b1a944  ./docs/adendo_backends_2026-09-04.md
+97ee12c3800bfd446ea7188e0b2f6ee56ffd435b597ab77dae0a96b283ea6b40  ./docs/ajustes_2026-09-04.md
+89df710d52b292639bedd60637c1a4e8d1d98d37e91031045e23703ec953250b  ./docs/nota_bloco1_tres_modelos_2026-09-09.md
+e52379a69103f6422907a09a091ac972d23ac5593a1eec4c799dfb1ad723af6c  ./docs/nota_bloco2_tres_modelos_2026-09-10.md
+074957d5a2d5f953640283295f530dec1316b37284c5fa3f1c8f86b4373270cf  ./docs/nota_rodada_gptoss_2026-09-07.md
+994e49710e0fd8e7c3c46b8c9dee58ec2358bd3155fcef805a70065b8baf9618  ./dose_resposta_bloco2.csv
+aa4b010cf37fe3e0756ed1d1bb971efad77fd0e58c7df80512b7aa36d0f9b4d9  ./dose_resposta_bloco2.parquet
+0063a54f09f37568c92c9f0adbdbffe0a926af14ad5e038b0c5a49a2e326f9c1  ./metadata_b1_gpt_oss_20b__e5small.json
+14c870f1809d8f5fd67bb43cee598aa8547e3d2671c6bf4904a1856b27f47ad5  ./metadata_b1_mistral_small3_1_latest__e5small.json
+0ec8a30dd022cb786f60479094b921e38b80d0ac6377bdab8dbad8c47327ab49  ./metadata_b1_qwen3_8_27b__e5small.json
+c0ffa4c907109c7e651e93dea4a40ab86fd8167905bea564a97ebfd290ff726d  ./metadata_b2_gpt_oss_20b__e5small.json
+733b963780c1a02f24a54c330cf1629239ef50dc1b86925b740335ebbe26c8ec  ./metadata_b2_mistral_small3_1_latest__e5small.json
+da4dd67e105788bf72c5ed72b864cdf03c85a60de6f1bc97dcc010c46fc8f375  ./metadata_b2_qwen3_8_27b__e5small.json
+adb703da53093335dbaba68fc2cf1e8bff3c3a6a1a90f66d28b31ced94f14bd0  ./modalidade_b_formato.csv
+08fb209e3a2ad57a78e14d30eae44e6aaf05d07c3b758a3b9d158f3bb6fa8ce1  ./nula_estratificada_bloco2.csv
+b6366d282ec2326a49268d7cfd134b04775c811647a159dd618a749fdbf90109  ./nula_exata_bloco2.csv
+32b4aaa93960d0da5eb4cf36b6babe2439d943884e48e0b5023453e946795c44  ./postos_bloco2.csv
+1076e3abca551dd93bc5504542809defbd5f2a19669144cb71d75c7b0fb9e4c8  ./postos_bloco2.parquet
+7985e27b7ea0e336ff38ed0eacfca14cecf315fa11cd7c6243660e24d232df56  ./requirements.lock
+467ecd55666e1175466dc219040173f5e98d99251dc9e40bc28998bdbb71ded7  ./requirements.txt
+72e5c7d775acda53079144f9d60a8ef2ed278e14c42902c6189722e172aee3b0  ./tabela_bloco1.csv
+908de48aa981b28ef063c20444758b86eba2f69b1cc67cb0e355f894ba01cc05  ./tabela_bloco2.csv
+
+--- NAO INCLUIDO, DE PROPOSITO ---
+.env    : contem o token do Hugging Face
+dados/  : corpus institucional; publicacao e decisao do autor

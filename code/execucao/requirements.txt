@@ -1,0 +1,45 @@
+# ============================================================
+# requirements.txt -- experimentos RAG iterativo/incremental + entropia
+# Máquina alvo: Windows/Linux com Nvidia RTX 5090 (Blackwell, sm_120)
+# ============================================================
+#
+# ATENÇÃO À ORDEM DE INSTALAÇÃO. O torch NÃO deve ser instalado por este
+# arquivo: ele precisa vir do índice CUDA 12.8+ da PyTorch, senão o build
+# baixado do PyPI não traz kernels sm_120 e a 5090 falha com
+# "no kernel image is available for execution on the device".
+#
+#   1) torch primeiro, do índice certo:
+#      pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   2) depois este arquivo:
+#      pip install -r requirements.txt
+#   3) confira:
+#      python verificar_ambiente.py
+#
+# ------------------------------------------------------------
+
+# transformers deixado SEM pino de versão de propósito: gemma-4-31B-it e
+# Qwen3.8-27B usam a classe AutoModelForMultimodalLM, que só existe nas
+# versões recentes. Se algum desses dois não carregar, atualize para a main:
+#   pip install -U git+https://github.com/huggingface/transformers
+transformers>=4.57
+accelerate>=1.0
+bitsandbytes>=0.45.3      # 0.45.3 é a primeira com kernels Blackwell/sm_120
+safetensors>=0.4
+sentencepiece>=0.2
+protobuf>=4.25
+
+# embeddings das perguntas (Qwen3-Embedding-8B)
+sentence-transformers>=3.0
+
+# gpt-oss-20b em MXFP4 nativo: sem estes dois o transformers cai para bf16
+# (~40 GB) e não cabe nos 32 GB da 5090.
+kernels>=0.4
+triton>=3.0 ; sys_platform == "linux"
+
+# dados e métricas
+pandas>=2.0
+pyarrow>=15.0             # engine do Parquet
+numpy>=1.26
+bert-score>=0.3.13        # eixo S (BERTScore F1)
+scipy>=1.11
+tqdm>=4.66

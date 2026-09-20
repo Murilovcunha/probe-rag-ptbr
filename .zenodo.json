@@ -1,0 +1,25 @@
+{
+  "title": "PROBE — recurso de avaliação e resultados experimentais para construção incremental de contexto em RAG local sobre documentação normativa hospitalar em português",
+  "upload_type": "dataset",
+  "language": "por",
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "version": "1.0.0",
+  "description": "<p>Conjunto de avaliação em português brasileiro com 192 pares pergunta&ndash;resposta sobre a documentação normativa de um hospital universitário (107 documentos, 740 segmentos indexados), dos quais 74 com segmento-ouro rastreável e 118 formulados por 12 profissionais da instituição. Inclui os resultados por consulta de 6.912 execuções &mdash; 3 arquiteturas locais &times; 2 recuperadores &times; 2 modalidades de parada &times; 3 modos de entrega &mdash;, os registros da sonda de entropia de <em>logits</em> (8.880 infer&ecirc;ncias) e o c&oacute;digo de an&aacute;lise que reproduz todas as tabelas do artigo.</p><p><strong>O texto integral dos documentos normativos n&atilde;o &eacute; distribu&iacute;do</strong>, por depender de autoriza&ccedil;&atilde;o institucional n&atilde;o contemplada no consentimento obtido. C&oacute;digo sob licen&ccedil;a MIT; dados sob CC BY 4.0.</p>",
+  "keywords": [
+    "retrieval-augmented generation",
+    "large language models",
+    "context sufficiency",
+    "Brazilian Portuguese",
+    "hospital normative documents",
+    "language resource",
+    "question answering"
+  ],
+  "creators": [
+    {"name": "da Cunha, Murilo Vargas", "affiliation": "Universidade Federal de Pelotas (UFPel); Instituto Federal do Rio Grande do Sul (IFRS)"},
+    {"name": "Silveira, Marília Rosa", "affiliation": "Universidade Federal de Pelotas (UFPel)"},
+    {"name": "Sperb, César Brasil", "affiliation": "Universidade Federal de Pelotas (UFPel)"},
+    {"name": "de Freitas, Larissa Astrogildo", "affiliation": "Universidade Federal de Pelotas (UFPel)"},
+    {"name": "Corrêa, Ulisses Brisolara", "affiliation": "Universidade Federal de Pelotas (UFPel)"}
+  ]
+}

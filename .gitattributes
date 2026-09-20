@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.parquet binary
+*.xlsx    binary
+*.npy     binary
+*.csv     text
+*.md      text
+*.py      text

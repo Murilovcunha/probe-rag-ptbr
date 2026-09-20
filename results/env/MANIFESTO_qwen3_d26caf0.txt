@@ -1,0 +1,79 @@
+ENTREGA: final
+Gerada em: 2026-09-13 17:28:05 -03
+
+--- CODIGO ---
+commit  : d26caf01747e5d1157cf139c173ea0d6335abc02
+ramo    : main
+tag     : <nenhuma neste commit>
+ATENCAO : a arvore de trabalho tinha 5 arquivo(s) modificado(s)
+          em relacao a este commit. Os numeros podem NAO
+          corresponder exatamente ao codigo versionado.
+
+           M requirements.lock
+           M requirements.txt
+          ?? Artigo_Lang4Health_Propor_2026.pdf
+          ?? corpus_export_e5small/
+          ?? dados_qwen3_tmp/
+
+--- AMBIENTE ---
+imagem  : logprob:1.0  <nao registrado>
+versoes : ver requirements.lock, e os metadata_*.json de cada bloco
+
+--- ARQUIVOS (sha256) ---
+7142cdd95721df8a50774e7e7b3824537614a9bf63702b9d4be0c53c2f763477  ./ancora_qwen3_8_27b_b2_fim.json
+928d1397e4170a5851dd49d14f2178c2e15872203b1886951526bcfc581d5846  ./ancora_qwen3_8_27b_b2_inicio.json
+f641d76de5105f75293388145dcbdfebe7715a2bec675235e8609821f3c0a345  ./b1_iteracoes_gpt_oss_20b.parquet
+0abfe7cd3d4fd1c807d1baa8787514bce23464af8b05a099cff3b52e8549e886  ./b1_iteracoes_mistral_small3_1_latest.parquet
+ca87da68240e8448ee20e279d2556beafa3569108d526bf96f914bc9d106be17  ./b1_iteracoes_qwen3_8_27b.parquet
+7f545b4af183e2bce77453fd364427b4fa1a4e2d55b46e289c14acc19100ebb7  ./b1_resumo_gpt_oss_20b_checkpoint_sem_bertscore.parquet
+32eb40cf7a00a949b274cf51ab3084f31920daa8f0b9ea9f6cbc25334d4d3aa6  ./b1_resumo_gpt_oss_20b.parquet
+225e0811cbe42fc747d797d72824ad0e80781ccf45cfa0fd41ab8d51146d4c85  ./b1_resumo_mistral_small3_1_latest_checkpoint_sem_bertscore.parquet
+d0d7cebac36b0d13924961660072319cabf26462aa3032c76d72b735f33a1d9f  ./b1_resumo_mistral_small3_1_latest.parquet
+962a0a74747d4211de7e8311aae2d2b3735b9cfd032dc8fdbdfc9d1dc77ff768  ./b1_resumo_qwen3_8_27b_checkpoint_sem_bertscore.parquet
+c8aaadfd80a865d15b4d938ffc431fa9a38fe0247fd26b48857e6d803454b05c  ./b1_resumo_qwen3_8_27b.parquet
+fb26ea0220814be65804129f0c8371204aff6f531e9108db7037ff5ee79a8841  ./b2_entropia_gpt_oss_20b.parquet
+ba0a1b07ef685628f19c2bcdeffb112ba2798f8b43cd270fda76d82c9fa9566d  ./b2_entropia_mistral_small3_1_latest.parquet
+5473a534ee9cabee12f7960805d62a34a67c42c78172b3d8e7fc241b5a506815  ./b2_entropia_qwen3_8_27b.parquet
+653ea2cfac7832a34aa14bec7058f783b73671a1d237553e2b7ce8eedb3c6f6a  ./b2_resultados_gpt_oss_20b_checkpoint_sem_bertscore.parquet
+06de9f7790dedff24254a74115dd63c00609193e1c5ff82382ffd11ce5b83d19  ./b2_resultados_gpt_oss_20b.parquet
+6fd9cef69cd7bc512648404befa06c4030cf727099549c54c875dfc644c5e955  ./b2_resultados_mistral_small3_1_latest_checkpoint_sem_bertscore.parquet
+6fd6ec1437ecd56431acfef95880831f24b821a02a81034c9214094f42de64f1  ./b2_resultados_mistral_small3_1_latest.parquet
+cd5544bef4649147a656044ba9b68b415448bec4a681f228f5df57c77da5497d  ./b2_resultados_qwen3_8_27b_checkpoint_sem_bertscore.parquet
+a1220223ac248608af0c4a39c533b9438538189841c6b8e688a3bf1000d83c8b  ./b2_resultados_qwen3_8_27b.parquet
+19df4944259ed1cd5cf9b67cbaacf271c371b2fbb1625355d42bd5e5975d88fe  ./circularidade_bloco2.csv
+c6a40d86cff1cec00d0b7e48ed5fd54c862af6342a79e81d0b1b029de2c2d9f2  ./comparacao_modalidades_bloco2.csv
+b356504871c6fdeb6193ff31054ddb0d66d749b8d8f25751b9066ca6bb896639  ./consolidado_bloco1.csv
+350c9f671ab0ae51a174a8f475da3ec1314195383479e40b1c70a3198064055f  ./consolidado_bloco1.parquet
+47a2bb3d265a75f7361ef64075cc8a969e120209f1c94fa3bfa3ccce757483e4  ./consolidado_bloco2.csv
+53b37f4563f1f798bbff7c596daed88ad2e174edc829f1be2102836b37363d19  ./consolidado_bloco2_entropia.parquet
+cd8f47b7b38b9a447829dd2576529fefcedfc22d47b77d8699c1f98f2d36123b  ./consolidado_bloco2.parquet
+0556833d0fa905179ab9f1aff46355aa3693d20b3bbe81710c5cfbfb5df02ac2  ./direcao_iter_vs_incremental.csv
+ef06ff701f6dfb6b8f5c1f348ecb47e1564caae4fd220ca292c1115fdf0f6f6a  ./docs/adendo2_reprodutibilidade_2026-09-05.md
+9aca9112fde72c1ddd42a72f7b32bd7a7414f63f2cac0f2cca4f040c37b1a944  ./docs/adendo_backends_2026-09-04.md
+97ee12c3800bfd446ea7188e0b2f6ee56ffd435b597ab77dae0a96b283ea6b40  ./docs/ajustes_2026-09-04.md
+89df710d52b292639bedd60637c1a4e8d1d98d37e91031045e23703ec953250b  ./docs/nota_bloco1_tres_modelos_2026-09-09.md
+e52379a69103f6422907a09a091ac972d23ac5593a1eec4c799dfb1ad723af6c  ./docs/nota_bloco2_tres_modelos_2026-09-10.md
+074957d5a2d5f953640283295f530dec1316b37284c5fa3f1c8f86b4373270cf  ./docs/nota_rodada_gptoss_2026-09-07.md
+2f353358fd7f7b7fdb253c82393c6c2b3be919cf45d0679f30b94f97319eef4b  ./docs/revisao_nota_bloco2.md
+48a1b7bc682a9f676e418a04ed025df62a436907ba0f3a74fc7d22dff2539491  ./dose_resposta_bloco2.csv
+fc92af3b833dedf78069cb8f9877f60f08de25ce7c6a7734da9adf8f5382e792  ./dose_resposta_bloco2.parquet
+eb2cd25e8f3271db225cd9db7ac8e3a05aa44184e0c37efde151dab960a23b4c  ./metadata_b1_gpt_oss_20b.json
+14a8f1bf196dd83aed674f5660c567dac2e38b539fc292508a8383099882598f  ./metadata_b1_mistral_small3_1_latest.json
+d112705aacbe0fd2425b235ff36aedd415530418ef1f9af84e62c9ca083a4bb8  ./metadata_b1_qwen3_8_27b.json
+72af45bcfa0036ff4f12910907b23753446b934ce43666ac2e84685a5c7d6ef2  ./metadata_b2_gpt_oss_20b.json
+7cce7a7f03addc20693afa27589c8b3f8f2998304afd4c29dc591555e47e1005  ./metadata_b2_mistral_small3_1_latest.json
+9cbf5e50a448c4cb1e55b7df0934bc4dbe94ce831d736a270e94b942f4d4839d  ./metadata_b2_qwen3_8_27b.json
+bf6667d2e94a04c31d462442bf0326e37a0263a55e285dbb5650a4056c56e99a  ./modalidade_b_formato.csv
+47657de7417636b46b71d45ac5db6cf4511db4b5e5d7dcc66e6647b607545862  ./nula_estratificada_bloco2.csv
+87da3f0368552f2fe481b8d8e51f015fa065854774a46049380500ba64c36af3  ./nula_exata_bloco2.csv
+822301a4e6d60efa1638d323edbdb19deedb590af78de67b4628d5ff8565eae8  ./postos_bloco2.csv
+68313c9c77b0f57066dde04b706accc2966054a29f5f4a39314b076443f69e67  ./postos_bloco2.parquet
+a97dcb3884399e3a7acc5beb569ed97ea8435352b7405fa9c2e9f613073d9cd2  ./requirements.lock
+8bf9dee1ad7ba473ff17af76d095c6e35b94918dfcd5819a9c053ab4641e22b1  ./requirements.txt
+f490f5f1fe49aa7d6da0d15144fa37debab632efe72d99e7eac28e6ed0dd4245  ./tabela_bloco1.csv
+7a4fd858813528ddedd49409fd3498cc9b76a819dca18b582cb29d76237bbc1f  ./tabela_bloco2.csv
+
+--- NAO INCLUIDO, DE PROPOSITO ---
+.env          : contem o token do Hugging Face
+dados/        : corpus institucional; publicacao e decisao do autor
+cache do HF   : ~300 GB de pesos, rebaixaveis

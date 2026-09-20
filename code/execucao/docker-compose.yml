@@ -1,0 +1,58 @@
+# ============================================================
+# docker-compose.yml -- execucao conteinerizada do pipeline
+#
+# Copie .env.exemplo para .env e ajuste os caminhos antes de usar.
+#
+#   docker compose build
+#   docker compose run --rm logprob python verificar_ambiente.py
+#   docker compose run --rm logprob python 05_piloto.py
+#
+# Os pesos do Hugging Face (~300 GB) e a pasta saidas/ ficam FORA da
+# imagem, em volumes apontados por DIR_HF_HOST e DIR_SAIDAS_HOST.
+# ============================================================
+services:
+  logprob:
+    build:
+      context: .
+      args:
+        UID: ${HOST_UID:?defina HOST_UID no arquivo .env}
+        GID: ${HOST_GID:?defina HOST_GID no arquivo .env}
+    image: logprob:1.0
+    user: "${HOST_UID:?defina HOST_UID no arquivo .env}:${HOST_GID:?defina HOST_GID no arquivo .env}"
+
+    # Exige NVIDIA Container Toolkit instalado no host.
+    # Em Compose anterior a v2.30, troque por:
+    #   deploy:
+    #     resources:
+    #       reservations:
+    #         devices:
+    #           - capabilities: [gpu]
+    gpus: all
+
+    # memoria compartilhada: o padrao de 64 MB e insuficiente para
+    # carregamento paralelo de shards e para o BERTScore.
+    ipc: host
+    shm_size: "16gb"
+
+    working_dir: /app
+    environment:
+      HF_HOME: /hf
+      LOGPROB_DADOS: /app/dados
+      LOGPROB_SAIDAS: /saidas
+      TOKENIZERS_PARALLELISM: "false"
+      # token de acesso aos repositorios gated (secao 2.4 do README).
+      # Alternativa: rodar `hf auth login` uma vez dentro do conteiner --
+      # o token fica em /hf e sobrevive a recriacao do conteiner.
+      HF_TOKEN: ${HF_TOKEN:-}
+
+    volumes:
+      # codigo + dados/ de entrada (edicoes no host valem na hora)
+      - .:/app
+      # cache de pesos do Hugging Face -- precisa de ~320 GB livres
+      - ${DIR_HF_HOST:?defina DIR_HF_HOST no arquivo .env}:/hf
+      # resultados do experimento
+      - ${DIR_SAIDAS_HOST:?defina DIR_SAIDAS_HOST no arquivo .env}:/saidas
+
+    stdin_open: true
+    tty: true
+    command: ["bash"]

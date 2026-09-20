@@ -1,0 +1,92 @@
+{
+  "tag_modelo": "gpt-oss:20b",
+  "hf_id": "openai/gpt-oss-20b",
+  "quantizacao": "nativo",
+  "attn_implementation_pedida": "flex_attention",
+  "attn_implementation_efetiva": "flex_attention",
+  "vocab_size": 201088,
+  "thinking_desligado": true,
+  "reasoning_effort": "low",
+  "marcadores_fim_prefacio": [
+    "<|message|>"
+  ],
+  "ids_marcadores_resolvidos": [
+    200008
+  ],
+  "prefixo_canal_final": "<|channel|>final<|message|>",
+  "tokens_especiais_removidos": [
+    "<|reserved_200017|>",
+    "<|reserved_200010|>",
+    "<|reserved_200000|>",
+    "<|reserved_200001|>",
+    "<|reserved_200013|>",
+    "<|reserved_200011|>",
+    "<|reserved_200016|>",
+    "<|reserved_200014|>",
+    "<|reserved_200004|>",
+    "<|reserved_200009|>",
+    "<|reserved_200015|>",
+    "<|endofprompt|>",
+    "<|startoftext|>",
+    "<|endoftext|>",
+    "<|constrain|>",
+    "<|channel|>",
+    "<|message|>",
+    "<|return|>",
+    "<|start|>",
+    "<|call|>",
+    "<|end|>"
+  ],
+  "limite_tokens_prompt": 32768,
+  "generation_config_efetivo": {
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "repetition_penalty": null,
+    "no_repeat_ngram_size": null,
+    "min_new_tokens": null,
+    "min_length": null,
+    "do_sample": true,
+    "max_new_tokens": null,
+    "eos_token_id": [
+      200002,
+      199999,
+      200012
+    ],
+    "pad_token_id": 199999
+  },
+  "n_passos_verificados": 54125,
+  "n_divergencias_argmax": 0,
+  "taxa_divergencia_argmax": 0.0,
+  "seed_base": 42,
+  "n_tokens_entropia_primaria": 20,
+  "registrar_todos_os_passos": true,
+  "max_new_tokens": 800,
+  "versoes": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu132",
+    "transformers": "5.16.1",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "vram_pico_gb": 13.217526912689209,
+  "bloco": 2,
+  "retriever": "qwen3",
+  "embed_model_id": "Qwen/Qwen3-Embedding-8B",
+  "n_perguntas": 74,
+  "n_linhas_resultado": 148,
+  "k_top": 10,
+  "com_sondas": true,
+  "criterios": [
+    "regex",
+    "json"
+  ],
+  "prefixo_forcado": null,
+  "fracao_posicoes_com_inicio_maior_que_zero": 1.0,
+  "min_passos_entropia_para_agregar": 5,
+  "retomado_de_n_perguntas": 0,
+  "n_perguntas_neste_processo": 74
+}

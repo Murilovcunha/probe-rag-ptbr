@@ -1,0 +1,72 @@
+{
+  "tag_modelo": "qwen3.8:27b",
+  "hf_id": "Qwen/Qwen3.8-27B",
+  "quantizacao": "4bit",
+  "attn_implementation_pedida": null,
+  "attn_implementation_efetiva": "sdpa",
+  "vocab_size": 248077,
+  "thinking_desligado": true,
+  "reasoning_effort": null,
+  "marcadores_fim_prefacio": [
+    "</think>"
+  ],
+  "ids_marcadores_resolvidos": [
+    248069
+  ],
+  "prefixo_canal_final": null,
+  "limite_tokens_prompt": 32768,
+  "generation_config_efetivo": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "repetition_penalty": null,
+    "no_repeat_ngram_size": null,
+    "min_new_tokens": null,
+    "min_length": null,
+    "do_sample": true,
+    "max_new_tokens": null,
+    "eos_token_id": [
+      248046,
+      248044
+    ],
+    "pad_token_id": 248044
+  },
+  "n_passos_verificados": 0,
+  "n_divergencias_argmax": 0,
+  "taxa_divergencia_argmax": null,
+  "seed_base": 42,
+  "n_tokens_entropia_primaria": 20,
+  "registrar_todos_os_passos": true,
+  "max_new_tokens": 800,
+  "versoes": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu132",
+    "transformers": "5.16.1",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "vram_pico_gb": 25.52021598815918,
+  "bloco": 1,
+  "retriever": "e5small",
+  "embed_model_id": "intfloat/multilingual-e5-small",
+  "criterios": [
+    "regex",
+    "json"
+  ],
+  "modos": [
+    "iterativo",
+    "incremental",
+    "fixo50"
+  ],
+  "d_max": 50,
+  "coluna_texto": "texto_pagina",
+  "n_perguntas": 192,
+  "dedup_por_pagina": false,
+  "evitar_repetir_pagina": true,
+  "json_decisao": "sentinela",
+  "retomado_de_n_perguntas": 0,
+  "n_perguntas_neste_processo": 192
+}

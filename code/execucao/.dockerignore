@@ -1,0 +1,9 @@
+saidas/
+.venv/
+venv/
+.git/
+.idea/
+__pycache__/
+*.pyc
+.env
+*.zip

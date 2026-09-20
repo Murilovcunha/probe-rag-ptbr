@@ -1,0 +1,4 @@
+retriever,modelo,n,janela_alinhada_pct,conformidade_pct,json_estrito_pct
+qwen3,gpt-oss:20b,740,100.0,100.0,100.0
+qwen3,mistral-small3.1:latest,740,100.0,100.0,100.0
+qwen3,qwen3.8:27b,740,100.0,100.0,100.0

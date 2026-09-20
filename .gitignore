@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------
+# BARREIRA DE PRIVACIDADE
+# O texto integral dos documentos normativos nunca entra neste repositório.
+# ---------------------------------------------------------------------
+corpus_export.parquet
+corpus_export_*.parquet
+texto_*.csv
+dados/
+saidas/
+*.docx
+*.pdf
+!docs/**/*.pdf
+
+# ---------------------------------------------------------------------
+# DOCUMENTOS DE TRABALHO — ficam no disco, não vão ao ar
+# ---------------------------------------------------------------------
+# roteiro de publicação e textos de apoio ao manuscrito: são do autor,
+# não do recurso, e citam caminhos locais
+scripts/
+docs/PASSO_A_PASSO.md
+docs/declaracoes_para_o_artigo.md
+
+# README de trabalho da pipeline (2 496 linhas, endereçado a um
+# colaborador). O que tinha valor de auditoria foi portado para
+# code/execucao/DECISOES_TECNICAS.md
+code/execucao/REVISAR_README.md
+REVISAR_*
+
+# segredos
+.env
+*.token
+credentials*
+
+# pesos e caches
+*.safetensors
+*.bin
+*.gguf
+.cache/
+~/.cache/
+
+# ambiente
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# sistema
+.DS_Store
+Thumbs.db
