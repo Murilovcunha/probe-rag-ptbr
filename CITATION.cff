@@ -14,7 +14,7 @@ date-released: 2026-09-20
 license: CC-BY-4.0
 license-url: "https://creativecommons.org/licenses/by/4.0/"
 repository-code: "https://github.com/Murilovcunha/probe-rag-ptbr"
-doi: "10.5281/zenodo.XXXXXXX"
+doi: "10.5281/zenodo.22858423"
 keywords:
   - retrieval-augmented generation
   - large language models

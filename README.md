@@ -7,7 +7,7 @@ Dados, resultados e código de análise do artigo:
 > Local Retrieval-Augmented Generation over Portuguese Hospital Documents.**
 > *Language Resources and Evaluation*, submetido.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22858423.svg)](https://doi.org/10.5281/zenodo.22858423)
 [![Código: MIT](https://img.shields.io/badge/c%C3%B3digo-MIT-blue.svg)](LICENSE)
 [![Dados: CC BY 4.0](https://img.shields.io/badge/dados-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 
@@ -119,7 +119,7 @@ sob qual regra ele foi produzido — várias dessas regras não são neutras.
 ## Uso rápido
 
 ```bash
-git clone https://github.com/USUARIO/probe-rag-ptbr.git
+git clone https://github.com/Murilovcunha/probe-rag-ptbr.git
 cd probe-rag-ptbr
 pip install pandas pyarrow openpyxl scipy
 ```
